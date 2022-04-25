@@ -1,0 +1,45 @@
+snippet cl "console.log"
+console.log($1);
+endsnippet
+
+snippet "(e)?int" "interface" r
+`!p snip.rv = "export " if match.group(1) else ""`interface I$1 {
+	$2
+}
+endsnippet
+
+snippet "(e)?fn" "function" r
+`!p snip.rv = "export " if match.group(1) else ""`const ${1:fn} = ($2) => {
+	$3
+};
+endsnippet
+
+snippet "(e)?fnl" "one line function" r
+`!p snip.rv = "export " if match.group(1) else ""`const ${1:fn} = ($2) => $3;
+endsnippet
+
+snippet imre "import React"
+import * as React from 'react';
+endsnippet
+
+snippet usef "useEffect"
+React.useEffect(() => {
+	$1
+}, [$2]);
+endsnippet
+
+snippet uscb "useCallback"
+const ${1:callback} = React.useCallback(($2) => {
+	$3
+}, [$4]);
+endsnippet
+
+snippet usme "useMemo"
+const ${1:value} = React.useMemo(($2) => {
+	return ${3:1};
+}, [$4]);
+endsnippet
+
+snippet usta "useState"
+const [${1:value}, set${1/\w+/\u$0/}] = React.useState($2);
+endsnippet

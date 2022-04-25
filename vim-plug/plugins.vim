@@ -60,6 +60,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Easy motion
     Plug 'easymotion/vim-easymotion'
 
+    " Snippets
+    Plug 'SirVer/ultisnips'
+
     " VCS plugin
     if has('nvim') || has('patch-8.0.902')
         Plug 'mhinz/vim-signify'

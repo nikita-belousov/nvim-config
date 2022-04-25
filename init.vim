@@ -3,10 +3,11 @@ source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/mappings.vim
 source $HOME/.config/nvim/settings.vim
 source $HOME/.config/nvim/commands.vim
+source $HOME/.config/nvim/abbreviations.vim
 source $HOME/.config/nvim/lualine.lua
 source $HOME/.config/nvim/toggleterm.lua
 source $HOME/.config/nvim/neoscroll.lua
-
+source $HOME/.config/nvim/functions.vim
 
 filetype plugin on
 
@@ -25,4 +26,4 @@ let loaded_netrwPlugin = 1
 " Lua plugins setup
 lua require('colorizer').setup()
 lua require('neoscroll').setup()
-lua require("which-key").setup()
+lua require('which-key').setup()

@@ -35,6 +35,28 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set omnifunc=syntaxcomplete#Complete
 set termguicolors
 
+filetype plugin on
+
+" Enables syntax highlighing
+syntax enable
+
 let g:material_theme_style = 'ocean'
 colorscheme material
 
+" Height for MRU (most recently used) files window
+let g:MRU_Window_Height=16
+
+" Open MRU file in current tab
+let MRU_Open_File_Use_Tabs = 0
+
+" Disable Netrw
+let loaded_netrwPlugin = 1
+
+" UltiSnips trigger
+let g:UltiSnipsExpandTrigger = '<c-s>'
+
+" Snippets directory
+let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
+
+" Edit snippet tab split
+let g:UltiSnipsEditSplit = 'vertical'
