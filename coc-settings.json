@@ -19,5 +19,6 @@
         }
     },
     "explorer.previewAction.content.maxHeight": 60,
-    "explorer.file.reveal.auto": true
+    "explorer.file.reveal.auto": true,
+    "explorer.openAction.relativePath": true
 }
