@@ -34,6 +34,7 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set omnifunc=syntaxcomplete#Complete
 set termguicolors
+set statusline+=%F
 
 filetype plugin on
 
@@ -52,11 +53,13 @@ let MRU_Open_File_Use_Tabs = 0
 " Disable Netrw
 let loaded_netrwPlugin = 1
 
-" UltiSnips trigger
+" UltiSnips settings
 let g:UltiSnipsExpandTrigger = '<c-s>'
-
-" Snippets directory
 let g:UltiSnipsSnippetDirectories = ["UltiSnips"]
-
-" Edit snippet tab split
 let g:UltiSnipsEditSplit = 'vertical'
+
+" Ack settings
+let g:ackhighlight = 1
+" let g:ack_default_options = ' -s -i -H --nopager --nocolor --nogroup
+"             \ --column --ignore-dir=node_modules --ignore-dir=build
+"             \ --output=$f'

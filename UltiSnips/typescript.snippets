@@ -43,3 +43,19 @@ endsnippet
 snippet usta "useState"
 const [${1:value}, set${1/\w+/\u$0/}] = React.useState($2);
 endsnippet
+
+snippet "(\w+).red" "reduce" r 
+`!p snip.rv = match.group(1)`.reduce((acc, ${1:item}) => {
+	$3
+
+	return acc;
+}, ${2:[]});
+endsnippet
+
+snippet "(\w+).map" "map" r 
+`!p snip.rv = match.group(1)`.map(${1:item} => {
+	$2
+
+	return item;
+});
+endsnippet

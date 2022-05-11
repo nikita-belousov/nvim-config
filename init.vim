@@ -1,3 +1,4 @@
+source $HOME/.config/nvim/arc.vim
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plug-config/coc.vim
 source $HOME/.config/nvim/mappings.vim
@@ -7,7 +8,6 @@ source $HOME/.config/nvim/abbreviations.vim
 source $HOME/.config/nvim/lualine.lua
 source $HOME/.config/nvim/toggleterm.lua
 source $HOME/.config/nvim/neoscroll.lua
-source $HOME/.config/nvim/functions.vim
 
 filetype plugin on
 

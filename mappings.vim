@@ -1,5 +1,6 @@
 " Map leader key
-:let mapleader = ","
+let g:mapleader = ","
+
 " Emmet trigger key
 let g:user_emmet_leader_key='<C-E>'
 
@@ -55,47 +56,19 @@ nnoremap <silent> <Leader><Leader>a :call OpenCurrentFileInArcanum()<cr>
 nnoremap <silent> <Leader><Leader>t :call OpenCurrentStarTrekTicket()<cr>
 
 " Arc commit
-nnoremap <silent> <Leader><Leader>c :call Commit()<cr>
+nnoremap <silent> <Leader><Leader>c :call ArcCommit()<cr>
 
 " View PR list in fzf
-nnoremap <silent> <leader>p :call fzf#run({ 
-    \ 'source': 'arc pr list',
-    \ 'window': { 'width': 0.8, 'height': 0.7 },
-    \ 'options': '--multi --reverse
-                \ --header "enter: view in browser"
-                \ --bind "enter:execute(arc pr view --id {1})+abort"' })<cr>
-
-" View arc branches list in fzf
-nnoremap <silent> <leader>b :call fzf#run({ 
-    \ 'source': 'arc branch',
-    \ 'window': { 'width': 0.8, 'height': 0.7 },
-    \ 'options': '--multi --reverse 
-                \ --header "enter: checkout, ctrl-d: delete branch, ctrl-\: force delete branch"
-                \ --bind "enter:execute(echo {} \| sed \"s/*//\" \| xargs arc checkout)+abort"
-                \ --bind "ctrl-r:reload(arc branch)"
-                \ --bind "ctrl-d:execute(echo {+} \| sed \"s/*//\" \| xargs -p arc branch --delete)"
-                \ --bind "ctrl-\:execute(echo {+} \| sed \"s/*//\" \| xargs -p arc branch -D)"' })<cr>
+nnoremap <silent> <leader>p :call ArcPRList()<cr>
 
 " View arc status in fzf
-nnoremap <silent> <leader>s :call fzf#run({ 
-    \ 'source': 'arc status -s',
-    \ 'window': { 'width': 0.9, 'height': 0.7 },
-    \ 'options': '--multi --reverse --print-query
-                \ --preview "arc diff HEAD {2} \| bat --color=always --theme=\"TwoDark\""
-                \ --header "ctrl-a: stage, ctrl-u: ustage, ctrl-x: revert changes"
-                \ --bind "ctrl-r:reload(arc status -s)"
-                \ --bind "ctrl-a:execute(arc add {2})"
-                \ --bind "ctrl-u:execute(arc reset {2})"
-                \ --bind "ctrl-x:execute(echo {2} \| xargs -p arc checkout)"
-                \ --bind "ctrl-m:execute(arc commit --no-verify -m {})"' })<cr>
+nnoremap <silent> <leader>s :call ArcStatus()<cr>
+
+" View arc branches list in fzf
+nnoremap <silent> <leader>b :call ArcBranches()<cr>
 
 " View arc log in fzf
-nnoremap <silent> <leader>l :call fzf#run({ 
-    \ 'source': 'arc log --oneline',
-    \ 'window': { 'width': 0.9, 'height': 0.8 },
-    \ 'options': '--multi --reverse --print-query
-                \ --preview "arc show {1} \| bat --color=always --theme=\"TwoDark\""
-                \ --header "ctrl-c: copy commit hash, ctr-o: open in arcanum"
-                \ --bind "ctrl-c:execute(echo {1} \| pbcopy)"
-                \ --bind "ctrl-o:execute(open https://a.yandex-team.ru/arc_vcs/commit/{1})"' })<cr>
+nnoremap <silent> <leader>l :call ArcLog()<cr>
 
+" View arc blame in fzf
+nnoremap <silent> <leader>h :call ArcBlame()<cr>
